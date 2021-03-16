@@ -3,6 +3,8 @@ import queryString from "query-string";
 import io from "socket.io-client";
 import './index.css';
 import Info from "../info";
+import Input from "../input";
+import Messages from "../messages";
 
 let socket;
 const ChatRoom = ({location})=>{
@@ -49,9 +51,8 @@ return ()=>{
         <div className="outerContainer">
         <div className="container">
         <Info room={room}></Info>
-
-        <input value={message} onChange = {(event)=>{setMessage(event.target.value)}}
-         onKeyPress= {event=>event.key === 'Enter' ? sendMessage(event): null}></input>
+          <Input message={message} setMessage={setMessage} sendMessage={sendMessage}></Input>
+          <Messages messages={messages} name={name}></Messages>
         </div>
         </div>
     )
