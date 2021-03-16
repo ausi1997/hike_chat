@@ -4,6 +4,8 @@ const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
 
+const router = require('./router');
+
 // making an express app
 const app = express();
 
@@ -12,6 +14,18 @@ const server = http.createServer(app);
 
 // creating a socketio server
 const io = socketio(server);
+
+// setting up a new socket connection
+io.on("connection" , (socket)=>{
+ console.log("New Connection...");
+
+ socket.on("disconnect" ,()=>{
+     console.log("Disconnected");
+ })
+});
+
+// middleware
+app.use(router);
 
 
 //  assining the port

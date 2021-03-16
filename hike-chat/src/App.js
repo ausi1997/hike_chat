@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as  Router , Route} from "react-router-dom";
-import JoinRoom from "./components/joinroom";
-import ChatRoom from "./components/chatRoom";
+import JoinRoom from "./components/join/index";
+import ChatRoom from "./components/chat/index";
 import './App.css';
 
 function App() {
